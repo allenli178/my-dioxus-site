@@ -1,12 +1,12 @@
-use std::sync::Arc;
-
 use dioxus::{prelude::*, router::RouterCore, web::use_eval};
 use dioxus_toast::ToastInfo;
+use std::sync::Arc;
 
 use crate::{
     components::{
         content::{Href, Markdown},
         footer::Footer,
+        header::Header,
     },
     TOAST_MANAGER,
 };
@@ -18,6 +18,7 @@ pub fn HelloDioxus(cx: Scope) -> Element {
     let eval = use_eval(&cx);
 
     cx.render(rsx! {
+        Header{}
         section {
             class: "h-screen bg-cover bg-white dark:bg-gray-600",
             div {
@@ -78,6 +79,7 @@ pub fn SayHi(cx: Scope) -> Element {
     let name = route.segment("name").unwrap();
     let name = urlencoding::decode(name).expect("UTF-8").to_string();
     cx.render(rsx! {
+        Header{}
         section {
             class: "h-screen bg-cover bg-white dark:bg-gray-600",
             div {
@@ -100,6 +102,7 @@ pub fn About(cx: Scope) -> Element {
     cx.render(rsx! {
         div {
             class: "dark:bg-gray-600",
+            Header{}
             br {}
             div {
                 class: "md:flex md:justify-center",

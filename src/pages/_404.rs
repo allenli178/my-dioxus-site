@@ -1,6 +1,5 @@
-use dioxus::prelude::*;
-
 use crate::components::footer::Footer;
+use dioxus::prelude::*;
 
 pub fn NotFound(cx: Scope) -> Element {
     cx.render(rsx! {
